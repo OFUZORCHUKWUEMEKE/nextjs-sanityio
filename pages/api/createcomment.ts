@@ -10,12 +10,13 @@ const config = {
   dataset:process.env.NEXT_PUBLIC_SANITY_DATASET,
   projectId:process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
   useCdn:process.env.NODE_ENV === "production",
-  token:process.env.SANITY_API_TOKEN
+  token:process.env.SANITY_API_TOKEN,
+  apiVersion: '2021-08-31'
 }
 
 const client = sanityClient(config)
 
-export default async function createComment(
+export default async function createcomment(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) { 
@@ -32,8 +33,8 @@ export default async function createComment(
       comment
     })
     console.log('submitted')  
-  } catch (error) {  
-     console.log(error)
+  } catch (error) {
+     console.log(error)  
   }
-  console.log('submitted')  
+  console.log('submitted')
 }
